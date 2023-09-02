@@ -11,7 +11,7 @@ const loadCategories = async () => {
 const tabDetails = (data) => {
   const tabContainer = document.getElementById("tab-container");
   const videos = data.data;
-  // console.log(videos);
+  
   videos.forEach((category) => {
     const tabDiv = document.createElement("div");
 
@@ -28,7 +28,7 @@ const cardCategories = async (id) => {
   );
   const data = await res.json();
   const allData = data.data;
-  // console.log(allData);
+
   button = allData
   displayCard(allData)
 }
@@ -40,7 +40,7 @@ const cardCategories = async (id) => {
   const emptyDiv = document.getElementById("nothing-div");
   emptyDiv.innerHTML = "";
   if (allData.length === 0) {
-    // cardContainer.innerHTML = ''
+   
     emptyDiv.innerHTML = `
     <div class="my-5 flex flex-col gap-10 justify-center items-center">
     <img class="" src="./images/Icon.png">
@@ -51,10 +51,9 @@ const cardCategories = async (id) => {
 
   allData?.forEach((video) => {
     console.log(video);
-    // cardContainer.innerHTML = ""
+  
   
       let seconds = video?.others?.posted_date;
-      // console.log(seconds);
       let time;
       if (seconds !== '') {
           let hours = Math.floor(seconds / 3600);
@@ -135,7 +134,6 @@ document.getElementById("blog-btn").addEventListener("click", function () {
 
 const  viewBtn  = () => {
   const  viewHighest = button?.sort((a, b) => parseFloat(b?.others?.views) - parseFloat(a?.others?.views));
-  // console.log(viewHighest);
   displayCard(viewHighest)
   
 }
